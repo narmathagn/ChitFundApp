@@ -1,0 +1,23 @@
+<h1>Plan List</h1>
+<button routerLink="/dashboard/plan/create">Create New Plan</button>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Duration</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let plan of plans">
+    <td>{{ plan.name }}</td>
+    <td>{{ plan.description }}</td>
+    <td>{{ plan.fixedAmount }}</td>
+    <td>{{ plan.duration }}</td>
+    <td>
+      <button (click)="editPlan(plan._id)">Edit</button>
+      <button (click)="deletePlan(plan._id)">Delete</button>
+    </td>
+  </tr>
+</table>

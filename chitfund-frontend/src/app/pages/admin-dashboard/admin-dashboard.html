@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="dashboard-container">
+
+  <!-- Sidebar inside admin dashboard -->
+  <nav class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a routerLink="users">Users</a></li>
+      <li><a routerLink="plans">Plans</a></li>
+    </ul>
+  </nav>
+
+<main style="padding: 2rem;">
+  <router-outlet></router-outlet>
+</main>
+</div>  

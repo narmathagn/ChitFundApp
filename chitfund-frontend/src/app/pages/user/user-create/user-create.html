@@ -1,0 +1,33 @@
+<h1>Create New User</h1>
+
+<form (ngSubmit)=" createUser()" #userForm="ngForm">
+
+  <label>Name:</label>
+  <input type="text" [(ngModel)]="user.name" name="name" required />
+
+  <label>Username:</label>
+  <input type="text" [(ngModel)]="user.username" name="username" required />
+
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="user.email" name="email" required />
+
+  <label>Phone:</label>
+  <input type="text" [(ngModel)]="user.phone" name="phone" required />
+
+  <label>Address:</label>
+  <input type="text" [(ngModel)]="user.address" name="address" />
+
+  <label>Pincode:</label>
+  <input type="text" [(ngModel)]="user.pincode" name="pincode" />
+
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="user.password" name="password" required />
+
+  <label>Role:</label>
+  <select [(ngModel)]="user.role" name="role" required>
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+  </select>
+
+  <button type="submit">Create User</button>
+</form>

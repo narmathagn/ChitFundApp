@@ -1,0 +1,12 @@
+ nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+}

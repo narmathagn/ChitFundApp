@@ -30,8 +30,8 @@ router.post('/create', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const subscriptions = await Subscription.find()
-      .populate('userId', 'username email phoneNumber')
-      .populate('planId', 'planName planDuration fixedAmount');
+      .populate('userId', 'name email address phoneNumber')
+      .populate('planId', 'name planDuration fixedAmount');
     res.status(200).json({ success: true, subscriptions });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });

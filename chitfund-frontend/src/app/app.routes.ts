@@ -6,6 +6,8 @@ import { UserList } from './pages/user/user-list/user-list';
 import { UserCreate } from './pages/user/user-create/user-create';
 import { UserEdit } from './pages/user/user-edit/user-edit';
 import { PlanList } from './pages/plan/plan-list/plan-list';
+import { PlanCreate } from './pages/plan/plan-create/plan-create';
+import { PlanEdit } from './pages/plan/plan-edit/plan-edit';
 
 export const routes: Routes = [
     { path: 'login', component: Login },
@@ -14,9 +16,9 @@ export const routes: Routes = [
             { path: 'users', component: UserList },
             { path: 'users/create', component: UserCreate },
             { path: 'users/edit/:id', component: UserEdit },
-              { path: 'plans', component: PlanList },
-             // { path: 'plan/create', component: PlanCreate },
-              //{ path: 'plan/edit/:id', component: PlanEdit},
+            { path: 'plans', component: PlanList },
+            { path: 'plans/create', component: PlanCreate },
+            { path: 'plans/edit/:id', component: PlanEdit },
             { path: '', redirectTo: 'users', pathMatch: 'full' }
         ],
         canActivate: [authGuard]

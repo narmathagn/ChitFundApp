@@ -33,6 +33,19 @@ router.put('/:id', async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 });
+// ✅ Get single plan by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const plan = await Plan.findById(req.params.id);
+    if (!plan) {
+      return res.status(404).json({ message: "Plan not found" });
+    }
+    res.json(plan);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 // Delete a plan by ID
 router.delete('/:id', async (req, res) => {

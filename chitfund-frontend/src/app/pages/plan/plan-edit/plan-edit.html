@@ -1,0 +1,30 @@
+<div class="form-container">
+  <h2>Edit Plan</h2>
+
+  <form (ngSubmit)="updatePlan()" #planForm="ngForm">
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="plan.name" name="name" required />
+    </label>
+
+    <label>
+      Fixed Amount:
+      <input type="number" [(ngModel)]="plan.fixedAmount" name="fixedAmount" required />
+    </label>
+
+    <label>
+      Duration (months):
+      <input type="number" [(ngModel)]="plan.duration" name="duration" required />
+    </label>
+
+    <label>
+      Description:
+      <textarea [(ngModel)]="plan.description" name="description"></textarea>
+    </label>
+
+    <div class="actions">
+      <button type="submit" class="btn">Update Plan</button>
+      <button type="button" class="btn cancel" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

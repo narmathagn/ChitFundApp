@@ -1,0 +1,47 @@
+.form-wrap {
+  max-width: 600px;
+  margin: 28px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  font-family: Arial, sans-serif;
+}
+
+h2 { text-align: center; margin-bottom: 18px; }
+
+.plan-form label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.plan-form input,
+.plan-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.primary { background: #1976d2; color: white; }
+.btn.cancel { background: #eee; color: #333; }
+.btn[disabled] { opacity: 0.7; cursor: not-allowed; }
+.error { color: red; margin-top: 6px; font-size: 14px; }

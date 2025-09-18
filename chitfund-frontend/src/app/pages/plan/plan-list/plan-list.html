@@ -1,8 +1,9 @@
 <h1>Plan List</h1>
-<button routerLink="/dashboard/plan/create">Create New Plan</button>
+<button class="create-btn" (click)="goToCreate()">Create New Plan</button>
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Description</th>
     <th>Price</th>
@@ -11,6 +12,7 @@
   </tr>
 
   <tr *ngFor="let plan of plans">
+    <td>{{ plan._id }}</td>
     <td>{{ plan.name }}</td>
     <td>{{ plan.description }}</td>
     <td>{{ plan.fixedAmount }}</td>

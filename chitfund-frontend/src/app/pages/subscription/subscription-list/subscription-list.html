@@ -1,0 +1,69 @@
+<div class="subs-wrap">
+  <h2>Subscriptions</h2>
+
+  <div class="controls">
+    <div class="search">
+      <select [(ngModel)]="filterBy">
+        <option value="username">Username</option>
+        <option value="phone">Phone</option>
+        <option value="planId">Plan ID</option>
+        <option value="status">Status</option>
+      </select>
+
+      <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (keyup.enter)="onSearch()" />
+
+      <button (click)="onSearch()">Search</button>
+      <button class="muted" (click)="clearSearch()">Clear</button>
+    </div>
+
+    <div class="page-controls">
+      <label>Page size:
+        <select (change)="onLimitChange($event)" [value]="limit">
+          <option *ngFor="let opt of limitOptions" [value]="opt">{{ opt }}</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+
+  <table class="subs-table" *ngIf="!loading && subscriptions.length">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Plan Name</th>
+        <th>Fixed Amount</th>
+        <th>Total Amount Paid</th>
+        <th>Total Grams Earned</th>
+        <th>Plan Start Date</th>
+        <th>Plan End Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of subscriptions">
+        <td>{{ s.userId?.name || s.userId?.username || '-' }}</td>
+        <td>{{ s.userId?.email || '-' }}</td>
+        <td>{{ s.planId?.name || s.planId?.planName || '-' }}</td>
+        <td>{{ s.planId?.fixedAmount ?? '-' }}</td>
+        <td>{{ s.totalAmountPaid ?? 0 }}</td>
+        <td>{{ s.totalGramsEarned ?? 0 }}</td>
+        <td>{{ s.planStartDate | date:'mediumDate' }}</td>
+        <td>{{ s.planEndDate ? (s.planEndDate | date:'mediumDate') : '-' }}</td>
+        <td>{{ s.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && !subscriptions.length" class="empty">No subscriptions found.</div>
+
+  <div class="pagination" *ngIf="totalPages > 0">
+    <button (click)="prev()" [disabled]="page === 1">Prev</button>
+
+    <button *ngFor="let p of pageList" (click)="changePage(p)" [class.active]="p === page">{{ p }}</button>
+
+    <button (click)="next()" [disabled]="page === totalPages">Next</button>
+    <span class="meta">Page {{page}} of {{ totalPages }} — Total: {{ totalRecords }}</span>
+  </div>
+</div>

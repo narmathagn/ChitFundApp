@@ -1,6 +1,6 @@
 <h1>Create New User</h1>
 
-<form (ngSubmit)=" createUser()"> #userForm="ngForm"
+<form (ngSubmit)=" createUser()"> 
 
   <label>Name:</label>
   <input type="text" [(ngModel)]="user.name" name="name" required />
@@ -29,5 +29,10 @@
     <option value="user">User</option>
   </select>
 
-  <button type="submit">Create User</button>
+ <div class="actions">
+    <button class="btn cancel" (click)="cancel()">Cancel</button>
+    <button type="submit" class="btn primary" [disabled]="loading">
+        {{ loading ? 'Creating...' : 'Create User' }}
+      </button>
+    </div>
 </form>

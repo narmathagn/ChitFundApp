@@ -96,5 +96,34 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 });
+// ✅ Get subscriptions with pagination
+router.get('/paginated', async (req, res) => {
+  try {
+    let { page = 1, limit = 10 } = req.query;
+    page = parseInt(page);
+    limit = parseInt(limit);
+
+    const subscriptions = await Subscription.find()
+      .populate('userId', 'name email address phoneNumber')
+      .populate('planId', 'name planDuration fixedAmount')
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .sort({ createdAt: -1 });
+
+    const total = await Subscription.countDocuments();
+
+    res.status(200).json({
+      success: true,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+      totalRecords: total,
+      subscriptions,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 
 export default router;

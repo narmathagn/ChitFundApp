@@ -24,6 +24,8 @@ export class UserCreate {
    role: 'user',
    _id: ''
  };
+
+   loading = false;
    constructor(private userService: UserService, private router: Router) {}
 
   createUser() {
@@ -40,4 +42,7 @@ export class UserCreate {
   ngOnInit() {
     // Initialize any necessary data here
   }
+  cancel() {
+  this.router.navigate(['/dashboard/users']); // Navigate back to user list
+}
 }

@@ -8,6 +8,7 @@ import { UserEdit } from './pages/user/user-edit/user-edit';
 import { PlanList } from './pages/plan/plan-list/plan-list';
 import { PlanCreate } from './pages/plan/plan-create/plan-create';
 import { PlanEdit } from './pages/plan/plan-edit/plan-edit';
+import { SubscriptionList } from './pages/subscription/subscription-list/subscription-list';
 
 export const routes: Routes = [
     { path: 'login', component: Login },
@@ -19,6 +20,7 @@ export const routes: Routes = [
             { path: 'plans', component: PlanList },
             { path: 'plans/create', component: PlanCreate },
             { path: 'plans/edit/:id', component: PlanEdit },
+            { path: 'subscriptions', component: SubscriptionList },
             { path: '', redirectTo: 'users', pathMatch: 'full' }
         ],
         canActivate: [authGuard]

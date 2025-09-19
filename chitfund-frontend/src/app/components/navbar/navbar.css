@@ -15,17 +15,18 @@ nav div {
    position: sticky;
    top: 0;
    z-index: 1000;
+   padding: 0 16px;
  }
 
  .title {
    font-size: 20px;
    font-weight: 600;
+   white-space: nowrap;
  }
 
  .spacer {
    flex: 1 1 auto;
  }
-
 
  .mat-toolbar,
  app-navbar nav {
@@ -38,8 +39,23 @@ nav div {
    background-color: var(--danger) !important;
    color: #fff !important;
    font-weight: bold;
+   display: flex;
+   align-items: center;
+   gap: 6px;
  }
 
  .logout-btn:hover {
-   background-color: #d32f2f !important;
+   background-color: #c62828 !important;
+ }
+
+ /* Mobile responsive tweaks */
+ @media (max-width: 768px) {
+   .title {
+     font-size: 16px;
+   }
+
+   .logout-btn {
+     font-size: 14px;
+     padding: 4px 10px;
+   }
  }

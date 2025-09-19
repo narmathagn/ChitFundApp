@@ -3,18 +3,21 @@ import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { User } from '../../../models/user.model';
 import { UserService } from '../userService';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatCell, MatHeaderCell, MatHeaderRow, MatRow, MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-list',
-  imports: [NgFor],
+  imports: [NgFor, MatIconModule],
   standalone: true,
   templateUrl: './user-list.html',
   styleUrl: './user-list.css'
 })
-export class UserList  implements OnInit {
+export class UserList implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.loadUsers();

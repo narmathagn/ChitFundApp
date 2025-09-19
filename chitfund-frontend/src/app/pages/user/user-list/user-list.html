@@ -1,6 +1,11 @@
 <div class="user-list-container">
-  <h1>User List</h1>
-  <button class="create-btn" (click)="goToCreate()">Create New User</button>
+  <div class="header-row">
+    <h1>User List</h1>
+    <button class="create-btn" (click)="goToCreate()">
+      <mat-icon>person_add</mat-icon>
+      Create New User
+    </button>
+  </div>
 
   <table class="user-table">
     <thead>
@@ -22,12 +27,15 @@
         <td data-label="Email">{{ user.email }}</td>
         <td data-label="Phone">{{ user.phone }}</td>
         <td data-label="Address">{{ user.address }}</td>
-        <td data-label="Actions">
-          <button class="edit-btn" (click)="editUser(user._id)">Edit</button>
-          <button class="delete-btn" (click)="deleteUser(user._id)">Delete</button>
+        <td data-label="Actions" class="action-buttons">
+          <button class="edit-btn" (click)="editUser(user._id)">
+            <mat-icon>edit</mat-icon> Edit
+          </button>
+          <button class="delete-btn" (click)="deleteUser(user._id)">
+            <mat-icon>delete</mat-icon> Delete
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
-
 </div>

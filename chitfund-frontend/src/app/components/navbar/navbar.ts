@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,4 +22,7 @@ export class Navbar {
     localStorage.removeItem('userId');
     this.router.navigate(['/login']);
   }
+
+  @Output() toggleSidebar = new EventEmitter<void>();
+
 }

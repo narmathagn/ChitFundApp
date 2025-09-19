@@ -5,8 +5,12 @@
   </button>
 </nav> -->
 
-<mat-toolbar color="primary" class="top-nav">
+<mat-toolbar class="top-nav">
   <!-- Left Section -->
+  <button mat-icon-button class="menu-btn" (click)="toggleSidebar.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
   <span class="title">ChitFund Admin</span>
 
   <!-- Spacer -->
@@ -15,6 +19,6 @@
   <!-- Right Section -->
   <button mat-raised-button class="logout-btn" (click)="logout()">
     <mat-icon>logout</mat-icon>
-    Logout
+    <span>Logout</span>
   </button>
 </mat-toolbar>

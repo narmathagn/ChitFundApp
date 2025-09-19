@@ -1,13 +1,28 @@
-<app-navbar></app-navbar>
+<app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
 
 <div class="dashboard-container">
   <!-- Sidebar -->
-  <nav class="sidebar">
-    <h2>Admin Panel</h2>
+  <nav class="sidebar" [class.collapsed]="isCollapsed" [class.open]="isMobileOpen">
+    <h2 *ngIf="!isCollapsed">Admin Panel</h2>
     <ul>
-      <li><a routerLink="users" routerLinkActive="active">Users</a></li>
-      <li><a routerLink="plans" routerLinkActive="active">Plans</a></li>
-      <li><a routerLink="subscriptions" routerLinkActive="active">Subscriptions</a></li>
+      <li>
+        <a routerLink="users" routerLinkActive="active">
+          <mat-icon>group</mat-icon>
+          <span *ngIf="!isCollapsed">Users</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="plans" routerLinkActive="active">
+          <mat-icon>assignment</mat-icon>
+          <span *ngIf="!isCollapsed">Plans</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="subscriptions" routerLinkActive="active">
+          <mat-icon>subscriptions</mat-icon>
+          <span *ngIf="!isCollapsed">Subscriptions</span>
+        </a>
+      </li>
     </ul>
   </nav>
 

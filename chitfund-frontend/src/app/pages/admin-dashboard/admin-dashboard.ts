@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Navbar } from '../../components/navbar/navbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -20,5 +20,22 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './admin-dashboard.css',
 })
 export class AdminDashboard {
+  isCollapsed = false;
+  isMobileOpen = false;
 
+  toggleSidebar() {
+    if (window.innerWidth <= 768) {
+      this.isMobileOpen = !this.isMobileOpen;
+    } else {
+      this.isCollapsed = !this.isCollapsed;
+    }
+  }
+
+  // Optional: Auto-close sidebar on window resize
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth > 768) {
+      this.isMobileOpen = false;
+    }
+  }
 }
